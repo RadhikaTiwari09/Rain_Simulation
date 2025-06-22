@@ -93,7 +93,6 @@ function revertToDefaultBg() {
 revertBgBtn.addEventListener('click', revertToDefaultBg);
 
 backgroundImage.onerror = () => {
-  console.log('Background image failed to load. Using fallback.');
   isCustomBg = false;
   backgroundImage.src = defaultBgSrc;
 };
@@ -101,9 +100,6 @@ backgroundImage.onerror = () => {
 function initializeSound() {
   if (soundToggle.checked == true && rainSound.paused == true && (hasInteracted == true || hasInteracted == false)) {
     rainSound.volume = Math.min(rainIntensitySlider.value / 150, 0.8);
-    rainSound.play().catch(function (e) {
-      console.log('Rain sound playback blocked:', e);
-    });
   }
   else if (soundToggle.checked == false) rainSound.pause();
 }
@@ -332,7 +328,6 @@ function triggerLightning() {
     nextLightningTime = 60 * (Math.random() * 4 + 5);
     if (soundToggle.checked) {
       thunderSound.currentTime = 0;
-      thunderSound.play().catch(e => console.log('Thunder playback error:', e));
     }
   }
 }
