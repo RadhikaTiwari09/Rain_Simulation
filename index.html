@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rain Simulation</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <canvas id="rainCanvas">
+      <img id="lightningImage" src="assets/images/lightning.gif"
+        style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; opacity: 0; transition: opacity 0.1s ease; z-index: 1000;">p
+    </canvas>
+
+    <div class="controls">
+
+      <h2>Rain Simulation Controls</h2>
+
+      <label for="rainIntensity">Rain Intensity: <span id="intensityValue">50</span></label>
+      <input type="range" id="rainIntensity" min="10" max="200" value="50">
+      <label for="windStrength">Wind Strength: <span id="windStrengthValue">0</span></label>
+      <input type="range" id="windStrength" min="0" max="10" value="0">
+      <label for="raindropSize">Raindrop Size: <span id="raindropSizeValue">1</span></label>
+      <input type="range" id="raindropSize" min="0.5" max="3" step="0.1" value="1">
+      <label for="windDirection">Wind Direction: <span id="windDirectionValue">0</span></label>
+      <input type="range" id="windDirection" min="-180" max="180" value="0">
+      <label for="rainColor">Rain Color:</label>
+      <input type="color" id="rainColor" value="#aec2e0">
+      <label for="soundToggle">Rain Sound</label>
+      <input type="checkbox" id="soundToggle" checked>
+      <label for="lightningToggle">Lightning Effect</label>
+      <input type="checkbox" id="lightningToggle">
+      <label for="splashToggle">Splash Effect</label>
+      <input type="checkbox" id="splashToggle" checked>
+      <label for="cursorEffectToggle">Cursor Interaction</label>
+      <input type="checkbox" id="cursorEffectToggle">
+      <label for="particleToggle">Particle Effects</label>
+      <input type="checkbox" id="particleToggle" checked>
+      <label for="windGustToggle">Wind Gusts</label>
+      <input type="checkbox" id="windGustToggle">
+      <label for="rainShadowToggle">Rain Shadow</label>
+      <input type="checkbox" id="rainShadowToggle">
+      <label for="glowEffectToggle">Glow Effect</label>
+      <input type="checkbox" id="glowEffectToggle">
+      <label for="dayNightToggle">Day/Night Cycle</label>
+      <input type="checkbox" id="dayNightToggle">
+      <label for="backgroundToggle">Background Image</label>
+      <input type="checkbox" id="backgroundToggle">
+      <input type="file" id="bgUpload" accept="image/*">
+
+      <button id="revertBg">Reset Background</button>
+      <button id="saveSettings">Save Settings</button>
+      <button id="loadSettings">Load Settings</button>
+
+    </div>
+
+    <button id="toggleControls" class="toggle-controls-btn">Hide Controls</button>
+
+  </div>
+
+  <audio id="rainSound" loop>
+    <source src="assets/sounds/rain.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="thunderSound">
+    <source src="assets/sounds/thunder.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+  <script src="script2.js"></script>
+
+</body>
+
+</html>
